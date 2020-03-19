@@ -2,16 +2,40 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FirstNonRepeatingCharacter
+namespace CharacterSearch
 {
-    class PointerSearch : ISearchNonRepeatingCharacter
+    class FirstNonRepeatingCharacter : CharacterSearcher
     {
-        public override string ToString()
+        public override void Find(string stringToSearchIn)
         {
-            return "PointerSearch";
+            DisplaySearchResult("Two Pointers", TwoPointers(stringToSearchIn));
         }
 
-        public char FindFirstNonRepeatingCharacter(string stringToSearchIn)
+
+
+        protected override void DisplaySearchResult(string methodName, char foundCharacter)
+        {
+            if (foundCharacter == default)
+            {
+                Console.WriteLine("Method \"{0}\" didn't find any Non Repeating Charaters.", methodName);
+            } 
+            else 
+            {
+                Console.WriteLine("Method \"{0}\" found First Non Repeating Charater: {1}", methodName, foundCharacter);
+            }
+            
+        }
+
+
+
+        /// <summary>
+        /// The slowest FirstNonRepeatingCharacter method. It uses two loops:
+        /// <para>First loop goes through each character.</para>
+        /// <para>Second loop compares char from the first one to each other character in the string.</para>
+        /// </summary>
+        /// <param name="stringToSearchIn">Sir</param>
+        /// <returns>First non repeating character in the given string.</returns>
+        private char TwoPointers(string stringToSearchIn)
         {
             char foundCharacter = default;
             int stringLength = stringToSearchIn.Length;
@@ -39,9 +63,7 @@ namespace FirstNonRepeatingCharacter
                 }
             }
 
-            CharacterSearcher.DisplaySearchResult(this.ToString(), foundCharacter);
-
             return foundCharacter;
-        }
+        }   
     }
 }
