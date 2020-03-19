@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Files\\C# Projects\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj": {}
+    "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj": {}
   },
   "projects": {
-    "C:\\Files\\C# Projects\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj": {
+    "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj",
+        "projectUniqueName": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj",
         "projectName": "FirstNonRepeatingCharacter",
-        "projectPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj",
+        "projectPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\obj\\",
+        "outputPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
