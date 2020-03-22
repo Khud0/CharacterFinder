@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CharacterSearch
 {
-    class FirstNonRepeatingCharacter : CharacterSearcher
+    public class FirstNonRepeatingCharacter : CharacterSearcher
     {
         public override void Find(string stringToSearchIn)
         {
@@ -35,7 +35,7 @@ namespace CharacterSearch
         /// </summary>
         /// <param name="stringToSearchIn">Sir</param>
         /// <returns>First non repeating character in the given string.</returns>
-        private char TwoPointers(string stringToSearchIn)
+        public char TwoPointers(string stringToSearchIn)
         {
             char foundCharacter = default;
             int stringLength = stringToSearchIn.Length;
