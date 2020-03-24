@@ -5,12 +5,13 @@ using System.Diagnostics;
 
 namespace CharacterSearch
 {
+    
     class ConsoleMenu
     {
+        
         private static Stopwatch stopwatch = default;
-        // Correct answer: '1' - FirstNonrepeatingCharacter
-        // Correct answer: '1', 'e', 'p' - AllNonRepeatingCharacters
-        private static string testString = "aabbccdddgggggwwwwxzxzklqklqttttttyyyyyy1uiuiuiuiooooeffqqqvvvbnbnbnmmkkpkqtydf";
+        // Correct answer for test string: 'f' - FirstNonrepeatingCharacter
+        private static string testString = "aakmhaamqmqa1hwwbbbboqcm1cochkhhk4doqmdwmdw1e2hwokehoewawqqkmbahbw1mkabeckhoodmwfmdcokhd2cwahowmqm4dhkce";
         private static bool caseSensitiveSearch = true;
 
         public static void Main(string[] args)
@@ -25,10 +26,15 @@ namespace CharacterSearch
         
         private static void RunSearcher<T>() where T : CharacterSearcher, new()
         {
-            StartStowpatch(ref stopwatch);
+            
             T searcher = new T();
-            searcher.Find(testString);
-            StopStopwatch(ref stopwatch);
+            int methodCount = searcher.GetSearchOptionsCount();
+            for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
+            {
+                StartStowpatch(ref stopwatch);
+                searcher.Find(testString, methodIndex);
+                StopStopwatch(ref stopwatch);
+            }
         }
         private static void StartStowpatch(ref Stopwatch activeStopwatch)
         {

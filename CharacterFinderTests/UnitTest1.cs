@@ -5,7 +5,11 @@ namespace CharacterFinderTests
 {
     public class Tests
     {
-        FirstNonRepeatingCharacter firstNonRepatingCharacter = new FirstNonRepeatingCharacter();
+        private string firstLetterString = "aakmhaamqmqahwwbbbboqcmcochkhhkdoqmdwmdwehwokehoewawqqkmbahbwmkabeckhoodmwfmdcokhdcwahowmqmdhkce";
+        private char firstLetterAnswer = 'f';
+
+        private string firstNumberString = "gaksjgaksjqwqwqwqwabababbbbbaakkksssgggjjsk1sjsju2uqwqw1";
+        private char firstNumberAnswer = '2';
 
         [SetUp]
         public void Setup()
@@ -19,23 +23,45 @@ namespace CharacterFinderTests
         }
 
         [Test]
-        public void Test2_FirstLetterTwoPointers()
+        public void Test2_TwoPointers_FirstLetter()
         {
-            string testString = "aaaaabbbbcccdddeeeabababecdfdcdcadce";
-            char correctAnswer = 'f';
-            char methodAnswer = firstNonRepatingCharacter.TwoPointers(testString);
-
-            Assert.AreEqual(correctAnswer, methodAnswer);
+            char methodAnswer = FirstNonRepeatingCharacter.TwoPointersSearch(firstLetterString);
+            Assert.AreEqual(firstLetterAnswer, methodAnswer);
         }
 
         [Test]
-        public void Test3_FirstNumberTwoPointers()
+        public void Test3_TwoPointers_FirstNumber()
         {
-            string testString = "aaaaarbbbbcccdrgddeeeabarbabegcdfdcdc1fedfdrrgradcre";
-            char correctAnswer = '1';
-            char methodAnswer = firstNonRepatingCharacter.TwoPointers(testString);
+            char methodAnswer = FirstNonRepeatingCharacter.TwoPointersSearch(firstNumberString);
+            Assert.AreEqual(firstNumberAnswer, methodAnswer);
+        }
 
-            Assert.AreEqual(correctAnswer, methodAnswer);
+        [Test]
+        public void Test4_Dictionary_FirstLetter()
+        {
+            char methodAnswer = FirstNonRepeatingCharacter.DictionarySearch(firstLetterString);
+            Assert.AreEqual(firstLetterAnswer, methodAnswer);
+        }
+
+        [Test]
+        public void Test5_Dictionary_FirstNumber()
+        {
+            char methodAnswer = FirstNonRepeatingCharacter.DictionarySearch(firstNumberString);
+            Assert.AreEqual(firstNumberAnswer, methodAnswer);
+        }
+
+        [Test]
+        public void Test6_CountEachCharacter_FirstLetter()
+        {
+            char methodAnswer = FirstNonRepeatingCharacter.CountEachCharacterSearch(firstLetterString);
+            Assert.AreEqual(firstLetterAnswer, methodAnswer);
+        }
+
+        [Test]
+        public void Test7_CountEachCharacter_FirstNumber()
+        {
+            char methodAnswer = FirstNonRepeatingCharacter.CountEachCharacterSearch(firstNumberString);
+            Assert.AreEqual(firstNumberAnswer, methodAnswer);
         }
     }
 }
