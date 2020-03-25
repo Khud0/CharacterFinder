@@ -4,44 +4,36 @@ using System.Text;
 
 namespace CharacterSearch
 {
-    public delegate string PerformStringSearch(string stringToSearchIn);
-
     public class UpperCaseCharacters : CharacterSearcher
     {
-        private List<PerformStringSearch> searchOptions = new List<PerformStringSearch>()
+        List<Func<string, string>> allMethods = new List<Func<string, string>>()
         {
-            new PerformStringSearch(StringBuilderRemove),
-            new PerformStringSearch(StringBuilderAdd),
-            new PerformStringSearch(RemoveDuplicateUpperCase)
+            new Func<string, string>(StringBuilderRemove),
+            new Func<string, string>(StringBuilderAdd),
+            new Func<string, string>(UpperCaseNoDuplicate)
         };
 
-
-
-        // Fires all method from searchOptions list and prints out FirstNonRepeatingCharacter, if any
-        // Displayes elapsed time for each method it runs
-        public override void TestAllMethods(string stringToSearchIn)
+        public override void Test(string stringToSearchIn)
         {
-            int methodCount = searchOptions.Count;
-            for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
-            {
-                Stopwatcher.Start();
-                PerformStringSearch selectedMethod = searchOptions[methodIndex];
-                DisplaySearchResult(selectedMethod.Method.Name, "upper case characters", selectedMethod(stringToSearchIn));
-                Stopwatcher.Stop();
-            }
+            TestAllMethods<string>(stringToSearchIn, "upper case letters", allMethods);
         }
 
 
+
+        #region Search Methods
 
         /// <summary>
         /// Creates an initialized StringBuilder and checks every character in a string. If it is an Upper Case character - remove it from the StringBuilder.
         /// </summary>
         public static string StringBuilderRemove(string stringToSearchIn)
         {
-            StringBuilder stringBuilder = new StringBuilder(stringToSearchIn);
-            int stringLength = stringToSearchIn.Length;
+            // If the string doesn't have upper case characters - don't check it
+            if (stringToSearchIn.ToLower() == stringToSearchIn) return null;
 
-            for(int i=stringLength-1; i>=0; i--)
+            StringBuilder stringBuilder = new StringBuilder(stringToSearchIn);
+
+            // Start from the end so that indexes of removed chars remain the same (StringBuilder will concatenate the rest of a string and all new indexes will be shifted)
+            for(int i=stringToSearchIn.Length-1; i>=0; i--)
             {
                 if (!char.IsUpper(stringToSearchIn[i]))
                 {
@@ -57,10 +49,12 @@ namespace CharacterSearch
         /// </summary>
         public static string StringBuilderAdd(string stringToSearchIn)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            int stringLength = stringToSearchIn.Length;
+            // If the string doesn't have upper case characters - don't check it
+            if (stringToSearchIn.ToLower() == stringToSearchIn) return null;
 
-            for (int i=0; i<stringLength; i++)
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int i=0; i<stringToSearchIn.Length; i++)
             {
                 char currentChar = stringToSearchIn[i];
                 if (char.IsUpper(currentChar))
@@ -75,13 +69,15 @@ namespace CharacterSearch
         /// <summary>
         /// Returns ONLY upper case characters without duplicates. The same character isn't checked more than once thanks to a list of seen characters.
         /// </summary>
-        public static string RemoveDuplicateUpperCase(string stringToSearchIn)
+        public static string UpperCaseNoDuplicate(string stringToSearchIn)
         {
+            // If the string doesn't have upper case characters - don't check it
+            if (stringToSearchIn.ToLower() == stringToSearchIn) return null;
+
             StringBuilder stringBuilder = new StringBuilder();
             List<char> seenUpperCaseCharacters = new List<char>();
-            int stringLength = stringToSearchIn.Length;
 
-            for (int i=0; i<stringLength; i++)
+            for (int i=0; i<stringToSearchIn.Length; i++)
             {
                 char currentChar = stringToSearchIn[i];
                 if (char.IsUpper(currentChar) && !seenUpperCaseCharacters.Contains(currentChar))
@@ -93,5 +89,7 @@ namespace CharacterSearch
 
             return (stringBuilder.Length == 0) ? null : stringBuilder.ToString();
         }
+
+        #endregion
     }
 }

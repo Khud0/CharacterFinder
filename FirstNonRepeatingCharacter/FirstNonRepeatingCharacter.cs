@@ -3,31 +3,18 @@ using System.Collections.Generic;
 
 namespace CharacterSearch
 {
-    public delegate char PerformCharSearch(string stringToSearchIn);
-    
     public class FirstNonRepeatingCharacter : CharacterSearcher
     {
-        private List<PerformCharSearch> searchOptions = new List<PerformCharSearch>()
+        List<Func<string, char>> allMethods = new List<Func<string, char>>()
         {
-            new PerformCharSearch(TwoPointersSearch),
-            new PerformCharSearch(DictionarySearch),
-            new PerformCharSearch(CountEachCharacterSearch)
+            new Func<string, char>(TwoPointersSearch),
+            new Func<string, char>(DictionarySearch),
+            new Func<string, char>(CountEachCharacterSearch)
         };
 
-        
-
-        // Fires all method from searchOptions list and prints out FirstNonRepeatingCharacter, if any
-        // Displayes elapsed time for each method it runs
-        public override void TestAllMethods(string stringToSearchIn)
+        public override void Test(string stringToSearchIn)
         {
-            int methodCount = searchOptions.Count;
-            for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
-            {
-                Stopwatcher.Start();
-                PerformCharSearch selectedMethod = searchOptions[methodIndex];
-                DisplaySearchResult(selectedMethod.Method.Name, "first non repeating character", selectedMethod(stringToSearchIn));
-                Stopwatcher.Stop();
-            }
+            TestAllMethods<char>(stringToSearchIn, "first non repeating character", allMethods);
         }
 
 
@@ -43,15 +30,14 @@ namespace CharacterSearch
         public static char TwoPointersSearch(string stringToSearchIn)
         {
             char foundCharacter = default;
-            int stringLength = stringToSearchIn.Length;
 
             // First loop - go through each single character in a string
-            for (int i=0; i<stringLength; i++)
+            for (int i=0; i<stringToSearchIn.Length; i++)
             {
                 bool characterRepeats = false;
 
                 // Compare one chosen character to each other character in the string except for itself
-                for (int ii=0; ii<stringLength; ii++)
+                for (int ii=0; ii<stringToSearchIn.Length; ii++)
                 {
                     if (ii == i) continue; // The character should skip itself (when both pointers are referring to the same position in a string)
                     if (stringToSearchIn[i] == stringToSearchIn[ii])
@@ -107,6 +93,7 @@ namespace CharacterSearch
                 char currentKey = stringToSearchIn[i];
                 int currentNumber = default;
 
+                // TryGetValue also checks if such a key exists or not
                 if (existingCharacters.TryGetValue(currentKey, out currentNumber))
                 {
                     if (currentNumber == 1) 
@@ -130,10 +117,9 @@ namespace CharacterSearch
         public static char CountEachCharacterSearch(string stringToSearchIn)
         {
             char foundCharacter = default;
-            int stringLength = stringToSearchIn.Length;
             List<char> checkedCharacters = new List<char>();
 
-            for (int i=0; i<stringLength; i++)
+            for (int i=0; i<stringToSearchIn.Length; i++)
             {
                 char currentCharacter = stringToSearchIn[i];
                 // Don't check the same character twice

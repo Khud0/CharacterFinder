@@ -18,6 +18,7 @@ namespace CharacterSearch
             RunSearcher<FirstNonRepeatingCharacter>();
             RunSearcher<UpperCaseCharacters>();
 
+            Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();
         }
 
@@ -25,7 +26,7 @@ namespace CharacterSearch
         private static void RunSearcher<T>() where T : CharacterSearcher, new()
         {
             T searcher = new T();
-            searcher.TestAllMethods(testString);
+            searcher.Test(testString);
         }
     }
 }

@@ -30,10 +30,10 @@ namespace CharacterFinderTests
         }
 
         [Test]
-        public void Test4_RemoveDuplicateUpperCase()
+        public void Test4_UpperCaseNoDuplicate()
         {
             string testString = "qweklqwlHHIIHIHIHIHIHHHHIIqwrtlkq;HIHIHIHIHHHHHHHHHHHIIIIIIIHIHIHIHIHIHIHqwekIq";
-            string methodAnswer = UpperCaseCharacters.RemoveDuplicateUpperCase(testString);
+            string methodAnswer = UpperCaseCharacters.UpperCaseNoDuplicate(testString);
             string correctAnswer = "HI";
             Assert.AreEqual(correctAnswer, methodAnswer);
         }
