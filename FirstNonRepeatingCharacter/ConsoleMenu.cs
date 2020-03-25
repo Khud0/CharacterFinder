@@ -7,7 +7,8 @@ namespace CharacterSearch
     class ConsoleMenu
     {
         // Correct answer for test string: 'f' - FirstNonrepeatingCharacter
-        private static string testString = "aakmhaamqmqa1hwwbbbboqcm1cochkhhk4doqmdwmdw1e2hwokehoewawqqkmbahbw1mkabeckhoodmwfmdcokhd2cwahowmqm4dhkce";
+        //                                 "HHEELLOO" - Upper Case String
+        private static string testString = "aakmhaamqmqa1hwwbbbboqcm1cochkhhk4HdoHqmdHwmdw1e2hwokehoEewEawqEqkmbLahbLw1mkabeckhoodLmwfmdcOokhd2cwaOhowmqm4Odhkce";
         private static bool caseSensitiveSearch = true;
 
         public static void Main(string[] args)
@@ -15,6 +16,7 @@ namespace CharacterSearch
             if (!caseSensitiveSearch) testString = testString.ToLower();
 
             RunSearcher<FirstNonRepeatingCharacter>();
+            RunSearcher<UpperCaseCharacters>();
 
             Console.ReadKey();
         }
@@ -23,7 +25,7 @@ namespace CharacterSearch
         private static void RunSearcher<T>() where T : CharacterSearcher, new()
         {
             T searcher = new T();
-            searcher.Find(testString);
+            searcher.TestAllMethods(testString);
         }
     }
 }

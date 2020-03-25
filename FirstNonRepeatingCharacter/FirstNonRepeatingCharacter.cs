@@ -3,40 +3,31 @@ using System.Collections.Generic;
 
 namespace CharacterSearch
 {
-    public delegate char PerformSearch(string stringToSearchIn);
+    public delegate char PerformCharSearch(string stringToSearchIn);
     
     public class FirstNonRepeatingCharacter : CharacterSearcher
     {
-        private List<PerformSearch> searchOptions = new List<PerformSearch>()
+        private List<PerformCharSearch> searchOptions = new List<PerformCharSearch>()
         {
-            new PerformSearch(TwoPointersSearch),
-            new PerformSearch(DictionarySearch),
-            new PerformSearch(CountEachCharacterSearch)
+            new PerformCharSearch(TwoPointersSearch),
+            new PerformCharSearch(DictionarySearch),
+            new PerformCharSearch(CountEachCharacterSearch)
         };
 
         
 
         // Fires all method from searchOptions list and prints out FirstNonRepeatingCharacter, if any
         // Displayes elapsed time for each method it runs
-        public override void Find(string stringToSearchIn)
+        public override void TestAllMethods(string stringToSearchIn)
         {
             int methodCount = searchOptions.Count;
             for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
             {
                 Stopwatcher.Start();
-                PerformSearch selectedMethod = searchOptions[methodIndex];
-                DisplaySearchResult(selectedMethod.Method.Name, selectedMethod(stringToSearchIn));
+                PerformCharSearch selectedMethod = searchOptions[methodIndex];
+                DisplaySearchResult(selectedMethod.Method.Name, "first non repeating character", selectedMethod(stringToSearchIn));
                 Stopwatcher.Stop();
             }
-        }
-
-
-
-        protected override void DisplaySearchResult(string methodName, char foundCharacter)
-        {
-            Console.WriteLine("\n"); 
-            if (foundCharacter == default) Console.WriteLine("Method \"{0}\" didn't find any Non Repeating Charaters.", methodName);
-            else                           Console.WriteLine("Method \"{0}\" found First Non Repeating Charater: {1}", methodName, foundCharacter);  
         }
 
 

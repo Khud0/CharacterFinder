@@ -3,7 +3,7 @@ using CharacterSearch;
 
 namespace CharacterFinderTests
 {
-    public class Tests
+    public class FirstNonRepeatingCharacterTests
     {
         private string firstLetterString = "aakmhaamqmqahwwbbbboqcmcochkhhkdoqmdwmdwehwokehoewawqqkmbahbwmkabeckhoodmwfmdcokhdcwahowmqmdhkce";
         private char firstLetterAnswer = 'f';
@@ -11,6 +11,7 @@ namespace CharacterFinderTests
         private string firstNumberString = "gaksjgaksjqwqwqwqwabababbbbbaakkksssgggjjsk1sjsju2uqwqw1";
         private char firstNumberAnswer = '2';
 
+        
         [Test]
         public void Test1_SanityCheck()
         {
