@@ -13,15 +13,21 @@ namespace CharacterSearch
             new PerformSearch(DictionarySearch),
             new PerformSearch(CountEachCharacterSearch)
         };
-        public override int GetSearchOptionsCount() { return searchOptions.Count; }
 
         
 
-        // Fires a method from searchOptions list and prints out FirstNonRepeatingCharacter, if any
-        public override void Find(string stringToSearchIn, int searchOptionIndex)
+        // Fires all method from searchOptions list and prints out FirstNonRepeatingCharacter, if any
+        // Displayes elapsed time for each method it runs
+        public override void Find(string stringToSearchIn)
         {
-            PerformSearch selectedMethod = searchOptions[searchOptionIndex];
-            DisplaySearchResult(selectedMethod.Method.Name, selectedMethod(stringToSearchIn));
+            int methodCount = searchOptions.Count;
+            for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
+            {
+                Stopwatcher.Start();
+                PerformSearch selectedMethod = searchOptions[methodIndex];
+                DisplaySearchResult(selectedMethod.Method.Name, selectedMethod(stringToSearchIn));
+                Stopwatcher.Stop();
+            }
         }
 
 

@@ -5,8 +5,7 @@ namespace CharacterSearch
 {
     public abstract class CharacterSearcher
     {
-        public abstract void Find(string stringToSearchIn, int searchOptionIndex);
-        public abstract int GetSearchOptionsCount();
+        public abstract void Find(string stringToSearchIn);
         protected abstract void DisplaySearchResult(string methodName, char foundCharacter);
     }
 }

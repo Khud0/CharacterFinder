@@ -11,11 +11,6 @@ namespace CharacterFinderTests
         private string firstNumberString = "gaksjgaksjqwqwqwqwabababbbbbaakkksssgggjjsk1sjsju2uqwqw1";
         private char firstNumberAnswer = '2';
 
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
         public void Test1_SanityCheck()
         {
