@@ -17,6 +17,7 @@ namespace CharacterSearch
 
             RunSearcher<FirstNonRepeatingCharacter>();
             RunSearcher<UpperCaseCharacters>();
+            RunSearcher<SortedString>();
 
             Console.WriteLine("\nPress any key to exit.");
             Console.ReadKey();

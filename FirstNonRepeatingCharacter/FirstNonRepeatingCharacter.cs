@@ -30,14 +30,15 @@ namespace CharacterSearch
         public static char TwoPointersSearch(string stringToSearchIn)
         {
             char foundCharacter = default;
+            int stringLength = stringToSearchIn.Length;
 
             // First loop - go through each single character in a string
-            for (int i=0; i<stringToSearchIn.Length; i++)
+            for (int i=0; i<stringLength; i++)
             {
                 bool characterRepeats = false;
 
                 // Compare one chosen character to each other character in the string except for itself
-                for (int ii=0; ii<stringToSearchIn.Length; ii++)
+                for (int ii=0; ii<stringLength; ii++)
                 {
                     if (ii == i) continue; // The character should skip itself (when both pointers are referring to the same position in a string)
                     if (stringToSearchIn[i] == stringToSearchIn[ii])
@@ -118,8 +119,9 @@ namespace CharacterSearch
         {
             char foundCharacter = default;
             List<char> checkedCharacters = new List<char>();
+            int stringLength = stringToSearchIn.Length;
 
-            for (int i=0; i<stringToSearchIn.Length; i++)
+            for (int i=0; i<stringLength; i++)
             {
                 char currentCharacter = stringToSearchIn[i];
                 // Don't check the same character twice
@@ -143,10 +145,11 @@ namespace CharacterSearch
         }
         private static bool StringContainsMoreThanOneCharacter(string stringToSearchIn, char charToCount)
         {
+            int stringLength = stringToSearchIn.Length;
             bool moreThanOneCharacter = false;
             int charCount = 0;
 
-            for (int i=0; i<stringToSearchIn.Length; i++)
+            for (int i=0; i<stringLength; i++)
             {
                 if (stringToSearchIn[i].Equals(charToCount))
                 {

@@ -31,9 +31,30 @@ namespace CharacterSearch
             int methodCount = searchMethods.Count;
             for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
             {
-                Stopwatcher.Start();
                 Func<string, T> selectedMethod = searchMethods[methodIndex];
+
+                Stopwatcher.Start();
                 DisplaySearchResult(selectedMethod.Method.Name, expectedOutput, selectedMethod.Invoke(stringToSearchIn));
+                Stopwatcher.Stop();
+            }
+        }
+
+        /// <summary>
+        /// Tests sort methods which can be ascending and descending
+        /// </summary>
+        protected void TestAllMethods<T>(string stringToSearchIn, string expectedOutput, List<Func<string, bool, T>> searchMethods) 
+        {
+            int methodCount = searchMethods.Count;
+            for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
+            {
+                Func<string, bool, T> selectedMethod = searchMethods[methodIndex];
+
+                Stopwatcher.Start();
+                DisplaySearchResult(selectedMethod.Method.Name, expectedOutput + " - ascending", selectedMethod.Invoke(stringToSearchIn, true));
+                Stopwatcher.Stop();
+
+                Stopwatcher.Start();
+                DisplaySearchResult(selectedMethod.Method.Name, expectedOutput + " - descending", selectedMethod.Invoke(stringToSearchIn, false));
                 Stopwatcher.Stop();
             }
         }

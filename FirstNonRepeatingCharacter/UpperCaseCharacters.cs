@@ -31,9 +31,10 @@ namespace CharacterSearch
             if (stringToSearchIn.ToLower() == stringToSearchIn) return null;
 
             StringBuilder stringBuilder = new StringBuilder(stringToSearchIn);
+            int stringLength = stringToSearchIn.Length;
 
             // Start from the end so that indexes of removed chars remain the same (StringBuilder will concatenate the rest of a string and all new indexes will be shifted)
-            for(int i=stringToSearchIn.Length-1; i>=0; i--)
+            for(int i=stringLength-1; i>=0; i--)
             {
                 if (!char.IsUpper(stringToSearchIn[i]))
                 {
@@ -53,8 +54,9 @@ namespace CharacterSearch
             if (stringToSearchIn.ToLower() == stringToSearchIn) return null;
 
             StringBuilder stringBuilder = new StringBuilder();
+            int stringLength = stringToSearchIn.Length;
 
-            for (int i=0; i<stringToSearchIn.Length; i++)
+            for (int i=0; i<stringLength; i++)
             {
                 char currentChar = stringToSearchIn[i];
                 if (char.IsUpper(currentChar))
@@ -76,8 +78,9 @@ namespace CharacterSearch
 
             StringBuilder stringBuilder = new StringBuilder();
             List<char> seenUpperCaseCharacters = new List<char>();
+            int stringLength = stringToSearchIn.Length;
 
-            for (int i=0; i<stringToSearchIn.Length; i++)
+            for (int i=0; i<stringLength; i++)
             {
                 char currentChar = stringToSearchIn[i];
                 if (char.IsUpper(currentChar) && !seenUpperCaseCharacters.Contains(currentChar))
