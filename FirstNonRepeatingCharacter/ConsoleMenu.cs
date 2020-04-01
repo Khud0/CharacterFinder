@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 
 namespace CharacterSearch
@@ -8,26 +9,96 @@ namespace CharacterSearch
     {
         // Correct answer for test string: 'f' - FirstNonrepeatingCharacter
         //                                 "HHEELLOO" - Upper Case String
-        private static string testString = "aakmhaamqmqa1hwwbbbboqcm1cochkhhk4HdoHqmdHwmdw1e2hwokehoEewEawqEqkmbLahbLw1mkabeckhoodLmwfmdcOokhd2cwaOhowmqm4Odhkce";
+        private static string defaultString = "aakmhaamqmqa1hwwbbbboqcm1cochkhhk4HdoHqmdHwmdw1e2hwokehoEewEawqEqkmbLahbLw1mkabeckhoodLmwfmdcOokhd2cwaOhowmqm4Odhkce";
+        private static string inputString = "/default";
         private static bool caseSensitiveSearch = true;
+
+        private static Dictionary<string, string> commands = new Dictionary<string, string>()
+        {
+            { "/all", "Tests all the methods in the program" },
+
+            { "/nonrepeating", "Finds the first non repeating character" },
+            { "/uppercase", "Finds all UPPER CASE characters" },
+            { "/sort", "Sorts characters" },
+
+            { "/exit", "Closes the console" }
+        };
 
         public static void Main(string[] args)
         {
-            if (!caseSensitiveSearch) testString = testString.ToLower();
+            if (!caseSensitiveSearch) defaultString = defaultString.ToLower();
 
-            RunSearcher<FirstNonRepeatingCharacter>();
-            RunSearcher<UpperCaseCharacters>();
-            RunSearcher<SortedString>();
+            while (true)
+            {
+                Console.Clear();
 
-            Console.WriteLine("\nPress any key to exit.");
-            Console.ReadKey();
+                // Display all command options with their descriptions
+                Console.WriteLine("Which method would you like to test?");
+                foreach (string commandName in commands.Keys)
+                {
+                    Console.WriteLine("{0} - {1}", commandName, commands[commandName]);
+                }
+                Console.WriteLine();
+
+                // Check user's input before running any further code
+                string inputCommand = Console.ReadLine();
+                if (!CommandIsCorrect(inputCommand))
+                {
+                    Console.WriteLine("\nThis command is not supported. Press any key to try again.\n");
+                    continue;
+                }
+
+                // Read input string from the user so that you can use it to run the selected method(s)
+                Console.WriteLine("\nWhich string would you like to test?\n" +
+                             "Type \"/default\" to use the default test string\n" +
+                             "Type \"/previous\" to use the default test string\n");
+                string readLine = Console.ReadLine();
+                if (readLine == "/default") inputString = defaultString;
+                else if (readLine != "/previous") inputString = readLine;
+
+                Console.WriteLine("\n-- Your input: {0} --", inputString);
+
+                TestMethod(inputCommand);
+
+                Console.WriteLine("\n-- Press any key to restart the program. --");
+                Console.ReadKey();
+            }
         }
 
-        
+        private static bool CommandIsCorrect(string inputCommand)
+        {
+            if (inputCommand == "/exit") 
+            {                
+                Environment.Exit(0);
+                return false;
+            }
+            else return commands.ContainsKey(inputCommand);
+        }
+
+        private static void TestMethod(string inputCommand)
+        {     
+            // Don't forget to add new commands to this switch statement
+            switch (inputCommand)
+            {
+                case "/all": RunAllSearchers(); break;
+                case "/nonrepeating": RunSearcher<FirstNonRepeatingCharacter>(); break;
+                case "/uppercase": RunSearcher<UpperCaseCharacters>(); break;
+                case "/sort": RunSearcher<SortedString>(); break;
+            }
+        }
+
+        private static void RunAllSearchers()
+        {
+            foreach (string commandName in commands.Keys)
+            {
+                if (commandName != "/all" && commandName != "/exit") TestMethod(commandName);
+            }
+        }
+
         private static void RunSearcher<T>() where T : CharacterSearcher, new()
         {
             T searcher = new T();
-            searcher.Test(testString);
+            searcher.Test(inputString);
         }
     }
 }
