@@ -44,7 +44,8 @@ namespace CharacterSearch
                 string inputCommand = Console.ReadLine();
                 if (!CommandIsCorrect(inputCommand))
                 {
-                    Console.WriteLine("\nThis command is not supported. Press any key to try again.\n");
+                    Console.WriteLine("\n-- This command is not supported. Press any key to try again. --\n");
+                    Console.ReadKey();
                     continue;
                 }
 

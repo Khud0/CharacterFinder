@@ -9,7 +9,8 @@ namespace CharacterSearch
         List<Func<string, bool, string>> allMethods = new List<Func<string, bool, string>>()
         {
             new Func<string, bool, string>(BubbleSort),
-            new Func<string, bool, string>(CharArraySort)
+            new Func<string, bool, string>(CharArraySort),
+            new Func<string, bool, string>(GnomeSort)
         };
 
         public override void Test(string stringToSearchIn)
@@ -17,8 +18,15 @@ namespace CharacterSearch
             TestAllMethods<string>(stringToSearchIn, "sorted string", allMethods);
         }
 
+        public static void SwapCharacters(StringBuilder stringBuilder, int index1, int index2)
+        {
+            char temp = stringBuilder[index2];
+            stringBuilder[index2] = stringBuilder[index1];
+            stringBuilder[index1] = temp;
+        }
+
         #region Search Methods
-            
+
         public static string BubbleSort(string stringToSort, bool ascending)
         {
             int stringLength = stringToSort.Length;
@@ -40,9 +48,7 @@ namespace CharacterSearch
 
                     if (shouldSwapCharacters)
                     {
-                        char tempChar = stringBuilder[i];
-                        stringBuilder[i] = stringBuilder[i+1];
-                        stringBuilder[i+1] = tempChar;
+                        SwapCharacters(stringBuilder, i, i+1);
                         changesMade++;
                     }
                 }
@@ -101,6 +107,39 @@ namespace CharacterSearch
             }
 
             Console.WriteLine();
+            return stringBuilder.ToString();
+        }
+
+        // (From https://www.geeksforgeeks.org/gnome-sort-a-stupid-one/)
+        /// <summary>
+        /// Garden Gnome looks at the flower pot next to him and the previous one.
+        /// If they are in the right order he steps one pot forward, otherwise he swaps them and steps one pot backwards.
+        /// </summary>
+        /// <returns></returns>
+        public static string GnomeSort(string stringToSort, bool ascending)
+        {
+            StringBuilder stringBuilder = new StringBuilder(stringToSort);
+            int currentIndex = 1; // Important! Start from 1 to avoid checking array[-1];
+            int stringLength = stringToSort.Length;
+
+            while (currentIndex < stringLength)
+            {
+                // Check if the value at the current index is lower (higher) than value at the previous index;
+                // If it is - swap them and take a step back (check the newly created pair);
+                int currentCharCode = (int) stringBuilder[currentIndex];
+                int previousCharCode = (int) stringBuilder[currentIndex-1];
+                bool shouldSwap = (ascending) ? (currentCharCode > previousCharCode) : (currentCharCode < previousCharCode);
+                if (shouldSwap)
+                {
+                    // Perform the swap
+                    SwapCharacters(stringBuilder, currentIndex, currentIndex-1);
+
+                    // Don't go to the index of 0, because there's no other index before it
+                    // Increment the current index if you're at the first position, because you've already checked it;
+                    if (currentIndex - 1 > 0) currentIndex -= 1; else currentIndex += 1;  
+                } else currentIndex += 1;
+            }
+
             return stringBuilder.ToString();
         }
 

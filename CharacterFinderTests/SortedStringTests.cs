@@ -10,59 +10,73 @@ namespace CharacterFinderTests
         private string correctAnswerDescending = "zxxwwwwwvusssssrqqqqqqqnlkkkkkkkkkkkjjjjigfedddddcbbaaa";
 
         [Test]
-        public void Test1_SanityCheck()
+        public void Test01_SanityCheck()
         {
             Assert.Pass();
         }
 
         [Test]
-        public void Test2_BubbleSort_Ascending()
+        public void Test02_BubbleSort_Ascending()
         {
             string methodAnswer = SortedString.BubbleSort(stringToSort, true);          
             Assert.AreEqual(correctAnswerAscending, methodAnswer);
         }
 
         [Test]
-        public void Test3_BubbleSort_Descending()
+        public void Test03_BubbleSort_Descending()
         {
             string methodAnswer = SortedString.BubbleSort(stringToSort, false);     
             Assert.AreEqual(correctAnswerDescending, methodAnswer);
         }
 
         [Test]
-        public void Test4_CharArraySort_Ascending()
+        public void Test04_CharArraySort_Ascending()
         {
             string methodAnswer = SortedString.CharArraySort(stringToSort, true);          
             Assert.AreEqual(correctAnswerAscending, methodAnswer);
         }
 
         [Test]
-        public void Test5_CharArraySort_Descending()
+        public void Test05_CharArraySort_Descending()
         {
             string methodAnswer = SortedString.CharArraySort(stringToSort, false);     
             Assert.AreEqual(correctAnswerDescending, methodAnswer);
         }
 
         [Test]
-        public void Test6_ToIntSelectionSort_Ascending()
+        public void Test06_ToIntSelectionSort_Ascending()
         {
             string methodAnswer = SortedString.ToIntSelectionSort(stringToSort, true);          
             Assert.AreEqual(correctAnswerAscending, methodAnswer);
         }
 
         [Test]
-        public void Test7_ToIntSelectionSort_Descending()
+        public void Test07_ToIntSelectionSort_Descending()
         {
             string methodAnswer = SortedString.ToIntSelectionSort(stringToSort, false);     
             Assert.AreEqual(correctAnswerDescending, methodAnswer);
         }
 
         [Test]
-        public void Test8_ToIntSelectionSort_Descending2()
+        public void Test08_ToIntSelectionSort_Descending2()
         {
             string testStringEasy = "abcdefg";
             string methodAnswer = SortedString.ToIntSelectionSort(testStringEasy, false);     
             Assert.AreEqual("gfedcba", methodAnswer);
+        }
+
+        [Test]
+        public void Test9_GnomeSort_Ascending()
+        {
+            string methodAnswer = SortedString.GnomeSort(stringToSort, true);          
+            Assert.AreEqual(correctAnswerAscending, methodAnswer);
+        }
+
+        [Test]
+        public void Test10_GnomeSort_Descending()
+        {
+            string methodAnswer = SortedString.GnomeSort(stringToSort, false);     
+            Assert.AreEqual(correctAnswerDescending, methodAnswer);
         }
     }
 }
