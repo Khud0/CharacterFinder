@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CharacterSearch
 {
-    public class FirstNonRepeatingCharacter : CharacterSearcher
+    public class FirstNonRepeatingCharacter : CharacterSearcher<char>
     {
         List<Func<string, char>> allMethods = new List<Func<string, char>>()
         {
@@ -14,7 +14,7 @@ namespace CharacterSearch
 
         public override void Test(string stringToSearchIn)
         {
-            TestAllMethods<char>(stringToSearchIn, "first non repeating character", allMethods);
+            TestAllMethods(stringToSearchIn, "first non repeating character", allMethods);
         }
 
 

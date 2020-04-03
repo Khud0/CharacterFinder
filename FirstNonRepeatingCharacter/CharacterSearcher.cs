@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CharacterSearch
 {
-    public class CharacterSearcher
+    public class CharacterSearcher<TOutput> where TOutput : IComparable
     {
         public virtual void Test(string stringToSearchIn)
         {
@@ -12,11 +12,12 @@ namespace CharacterSearch
         }
 
         /// <param name="searchFor">What should the method return? How is it called? Example: "first non repeating character"</param>
-        protected virtual void DisplaySearchResult(string methodName, string searchFor, object searchResult)
+        protected virtual void DisplaySearchResult(string methodName, string searchFor, TOutput searchResult)
         {
             Console.WriteLine(); 
-            if (searchResult == default) Console.WriteLine("Method \"{0}\" didn't find any \"{1}\"", methodName, searchFor);
-            else                         Console.WriteLine("Method \"{0}\" found \"{1}\": {2}", methodName, searchFor, searchResult);  
+            if (searchResult == null ||searchResult.Equals(default(TOutput))) 
+                    Console.WriteLine($"Method \"{methodName}\" didn't find any \"{searchFor}\"");
+            else    Console.WriteLine($"Method \"{methodName}\" found \"{searchFor}\": {searchResult}");  
         }
 
         /// <summary>
@@ -26,12 +27,12 @@ namespace CharacterSearch
         /// <typeparam name="T">Return type of methods (Func delegates) in provided List</typeparam>
         /// <param name="expectedOutput">What should the method return? How is it called? Example: "first non repeating character"</param>
         /// <param name="searchMethods">List of Func delegates with all the methods you want to test</param>
-        protected void TestAllMethods<T>(string stringToSearchIn, string expectedOutput, List<Func<string, T>> searchMethods) 
+        protected void TestAllMethods(string stringToSearchIn, string expectedOutput, List<Func<string, TOutput>> searchMethods) 
         {
             int methodCount = searchMethods.Count;
             for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
             {
-                Func<string, T> selectedMethod = searchMethods[methodIndex];
+                Func<string, TOutput> selectedMethod = searchMethods[methodIndex];
 
                 Stopwatcher.Start();
                 DisplaySearchResult(selectedMethod.Method.Name, expectedOutput, selectedMethod.Invoke(stringToSearchIn));
@@ -42,12 +43,12 @@ namespace CharacterSearch
         /// <summary>
         /// Tests sort methods which can be ascending and descending
         /// </summary>
-        protected void TestAllMethods<T>(string stringToSearchIn, string expectedOutput, List<Func<string, bool, T>> searchMethods) 
+        protected void TestAllMethods(string stringToSearchIn, string expectedOutput, List<Func<string, bool, TOutput>> searchMethods) 
         {
             int methodCount = searchMethods.Count;
             for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
             {
-                Func<string, bool, T> selectedMethod = searchMethods[methodIndex];
+                Func<string, bool, TOutput> selectedMethod = searchMethods[methodIndex];
 
                 Stopwatcher.Start();
                 DisplaySearchResult(selectedMethod.Method.Name, expectedOutput + " - ascending", selectedMethod.Invoke(stringToSearchIn, true));

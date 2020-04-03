@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CharacterSearch
 {
-    public class UpperCaseCharacters : CharacterSearcher
+    public class UpperCaseCharacters : CharacterSearcher<string>
     {
         List<Func<string, string>> allMethods = new List<Func<string, string>>()
         {
@@ -15,7 +15,7 @@ namespace CharacterSearch
 
         public override void Test(string stringToSearchIn)
         {
-            TestAllMethods<string>(stringToSearchIn, "upper case letters", allMethods);
+            TestAllMethods(stringToSearchIn, "upper case letters", allMethods);
         }
 
 
@@ -42,7 +42,7 @@ namespace CharacterSearch
                 }
             }
 
-            return (stringBuilder.Length == 0) ? null : stringBuilder.ToString();
+            return (stringBuilder.Length == 0) ? default : stringBuilder.ToString();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace CharacterSearch
                 }
             }
 
-            return (stringBuilder.Length == 0) ? null : stringBuilder.ToString();
+            return (stringBuilder.Length == 0) ? default : stringBuilder.ToString();
         }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace CharacterSearch
                 }
             }
 
-            return (stringBuilder.Length == 0) ? null : stringBuilder.ToString();
+            return (stringBuilder.Length == 0) ? default : stringBuilder.ToString();
         }
 
         #endregion

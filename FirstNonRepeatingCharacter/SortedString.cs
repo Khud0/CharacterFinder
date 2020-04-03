@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CharacterSearch
 {
-    public class SortedString : CharacterSearcher
+    public class SortedString : CharacterSearcher<string>
     {            
         List<Func<string, bool, string>> allMethods = new List<Func<string, bool, string>>()
         {
@@ -15,7 +15,7 @@ namespace CharacterSearch
 
         public override void Test(string stringToSearchIn)
         {
-            TestAllMethods<string>(stringToSearchIn, "sorted string", allMethods);
+            TestAllMethods(stringToSearchIn, "sorted string", allMethods);
         }
 
         public static void SwapCharacters(StringBuilder stringBuilder, int index1, int index2)

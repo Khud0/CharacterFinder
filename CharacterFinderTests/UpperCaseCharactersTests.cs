@@ -8,13 +8,13 @@ namespace CharacterFinderTests
         string uppercaseString = "jqkwjekwqtHweqwrktuaselgEdjhjasLLiqoqwieOqlwkwrq";
 
         [Test]
-        public void Test1_SanityCheck()
+        public void Test01_SanityCheck()
         {
             Assert.Pass();
         }
 
         [Test]
-        public void Test2_StringBuilderRemove()
+        public void Test02_StringBuilderRemove()
         {
             string methodAnswer = UpperCaseCharacters.StringBuilderRemove(uppercaseString);
             string correctAnswer = "HELLO";
@@ -22,7 +22,7 @@ namespace CharacterFinderTests
         }
 
         [Test]
-        public void Test3_StringBuilderAdd()
+        public void Test03_StringBuilderAdd()
         {
             string methodAnswer = UpperCaseCharacters.StringBuilderRemove(uppercaseString);
             string correctAnswer = "HELLO";
@@ -30,7 +30,7 @@ namespace CharacterFinderTests
         }
 
         [Test]
-        public void Test4_UpperCaseNoDuplicate()
+        public void Test04_UpperCaseNoDuplicate()
         {
             string testString = "qweklqwlHHIIHIHIHIHIHHHHIIqwrtlkq;HIHIHIHIHHHHHHHHHHHIIIIIIIHIHIHIHIHIHIHqwekIq";
             string methodAnswer = UpperCaseCharacters.UpperCaseNoDuplicate(testString);

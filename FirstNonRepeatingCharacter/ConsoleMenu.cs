@@ -36,7 +36,7 @@ namespace CharacterSearch
                 Console.WriteLine("Which method would you like to test?");
                 foreach (string commandName in commands.Keys)
                 {
-                    Console.WriteLine("{0} - {1}", commandName, commands[commandName]);
+                    Console.WriteLine($"{commandName} - {commands[commandName]}");
                 }
                 Console.WriteLine();
 
@@ -57,7 +57,7 @@ namespace CharacterSearch
                 if (readLine == "/default") inputString = defaultString;
                 else if (readLine != "/previous") inputString = readLine;
 
-                Console.WriteLine("\n-- Your input: {0} --", inputString);
+                Console.WriteLine($"\n-- Your input: {inputString} --");
 
                 TestMethod(inputCommand);
 
@@ -82,9 +82,9 @@ namespace CharacterSearch
             switch (inputCommand)
             {
                 case "/all": RunAllSearchers(); break;
-                case "/nonrepeating": RunSearcher<FirstNonRepeatingCharacter>(); break;
-                case "/uppercase": RunSearcher<UpperCaseCharacters>(); break;
-                case "/sort": RunSearcher<SortedString>(); break;
+                case "/nonrepeating": RunSearcher<FirstNonRepeatingCharacter, char>(); break;
+                case "/uppercase": RunSearcher<UpperCaseCharacters, string>(); break;
+                case "/sort": RunSearcher<SortedString, string>(); break;
             }
         }
 
@@ -96,9 +96,10 @@ namespace CharacterSearch
             }
         }
 
-        private static void RunSearcher<T>() where T : CharacterSearcher, new()
+        private static void RunSearcher<TSearcher, TOutput>() where TSearcher : CharacterSearcher<TOutput>, new()
+                                                              where TOutput : IComparable
         {
-            T searcher = new T();
+            TSearcher searcher = new TSearcher();
             searcher.Test(inputString);
         }
     }
