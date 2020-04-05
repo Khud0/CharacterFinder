@@ -27,6 +27,9 @@ namespace CharacterSearch
 
         #region Search Methods
 
+        /// <summary>
+        /// Compares pairs of values and swaps them if 
+        /// </summary>
         public static string BubbleSort(string stringToSort, bool ascending)
         {
             int stringLength = stringToSort.Length;
@@ -128,7 +131,7 @@ namespace CharacterSearch
                 // If it is - swap them and take a step back (check the newly created pair);
                 int currentCharCode = (int) stringBuilder[currentIndex];
                 int previousCharCode = (int) stringBuilder[currentIndex-1];
-                bool shouldSwap = (ascending) ? (currentCharCode > previousCharCode) : (currentCharCode < previousCharCode);
+                bool shouldSwap = (ascending) ? (currentCharCode < previousCharCode) : (currentCharCode > previousCharCode);
                 if (shouldSwap)
                 {
                     // Perform the swap
@@ -142,6 +145,53 @@ namespace CharacterSearch
 
             return stringBuilder.ToString();
         }
+
+        /// <summary>
+        /// Sorted array is built one element at a time.
+        /// Every previous element is compared to key and if it is higher (lower) -> it gets moved forwards.
+        /// The key is then put into the place of the last moved element (if any).
+        /// </summary>
+        /// <returns></returns>
+        public static string InsertionSort(string stringToSort, bool ascending) 
+        { 
+            int stringLength = stringToSort.Length; 
+            StringBuilder stringBuilder = new StringBuilder();
+
+            int[] charCodeArray = new int[stringLength];
+            // Convert string into chars (char ASCII codes, actually)
+            for (int i=0; i<stringLength; i++)
+            {
+                charCodeArray[i] = (int) stringToSort[i];
+            }
+
+            // i=1, because there's no previous index to 0
+            for (int i=1; i<stringLength; i++) 
+            { 
+                int key = charCodeArray[i]; 
+                int j = i - 1; 
+
+                // Check previous element and move it forward if it is higher than key
+                // If no such element is found, place the key in the currently empty space
+                // (the one that you've moved the element forwards from, if any)
+                
+                while (j >= 0) 
+                { 
+                    bool shouldMoveForwards = (ascending) ? (charCodeArray[j] > key) : (charCodeArray[j] < key);
+                    if (!shouldMoveForwards) break;
+
+                    charCodeArray[j+1] = charCodeArray[j]; 
+                    j = j - 1; // Check if the newly placed element is in its place
+                } 
+                charCodeArray[j + 1] = key; 
+            } 
+            
+            for(int i=0; i<stringLength; i++)
+            {
+                stringBuilder.Append((char)charCodeArray[i]);
+            }
+
+            return stringBuilder.ToString();
+    } 
 
         #endregion
     }

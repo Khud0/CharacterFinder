@@ -66,7 +66,7 @@ namespace CharacterFinderTests
         }
 
         [Test]
-        public void Test9_GnomeSort_Ascending()
+        public void Test09_GnomeSort_Ascending()
         {
             string methodAnswer = SortedString.GnomeSort(stringToSort, true);          
             Assert.AreEqual(correctAnswerAscending, methodAnswer);
@@ -76,6 +76,20 @@ namespace CharacterFinderTests
         public void Test10_GnomeSort_Descending()
         {
             string methodAnswer = SortedString.GnomeSort(stringToSort, false);     
+            Assert.AreEqual(correctAnswerDescending, methodAnswer);
+        }
+
+        [Test]
+        public void Test11_InsertionSort_Ascending()
+        {
+            string methodAnswer = SortedString.InsertionSort(stringToSort, true);          
+            Assert.AreEqual(correctAnswerAscending, methodAnswer);
+        }
+
+        [Test]
+        public void Test12_InsertionSort_Descending()
+        {
+            string methodAnswer = SortedString.InsertionSort(stringToSort, false);     
             Assert.AreEqual(correctAnswerDescending, methodAnswer);
         }
     }

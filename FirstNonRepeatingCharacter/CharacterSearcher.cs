@@ -15,7 +15,7 @@ namespace CharacterSearch
         protected virtual void DisplaySearchResult(string methodName, string searchFor, TOutput searchResult)
         {
             Console.WriteLine(); 
-            if (searchResult == null ||searchResult.Equals(default(TOutput))) 
+            if (searchResult == null || searchResult.Equals(default(TOutput))) 
                     Console.WriteLine($"Method \"{methodName}\" didn't find any \"{searchFor}\"");
             else    Console.WriteLine($"Method \"{methodName}\" found \"{searchFor}\": {searchResult}");  
         }
