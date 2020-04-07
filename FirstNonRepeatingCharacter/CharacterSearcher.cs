@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace CharacterSearch
 {
     public class CharacterSearcher<TOutput> where TOutput : IComparable

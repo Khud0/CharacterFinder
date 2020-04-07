@@ -19,6 +19,7 @@ namespace CharacterSearch
 
             { "/nonrepeating", "Finds the first non repeating character" },
             { "/uppercase", "Finds all UPPER CASE characters" },
+            { "/format", "Applies various formats to strings" },
             { "/sort", "Sorts characters" },
 
             { "/exit", "Closes the console" }
@@ -85,6 +86,7 @@ namespace CharacterSearch
                 case "/nonrepeating": RunSearcher<FirstNonRepeatingCharacter, char>(); break;
                 case "/uppercase": RunSearcher<UpperCaseCharacters, string>(); break;
                 case "/sort": RunSearcher<SortedString, string>(); break;
+                case "/format": RunSearcher<FormattedString, string>(); break;
             }
         }
 
