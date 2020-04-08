@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FirstNonRepeatingCharacter\FirstNonRepeatingCharacter.csproj" />
+    <ProjectReference Include="..\StringPlay\StringPlay.csproj" />
   </ItemGroup>
 
 </Project>

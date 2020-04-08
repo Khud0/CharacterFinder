@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using CharacterSearch;
+using StringPlay;
 
 namespace CharacterFinderTests
 {

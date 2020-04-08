@@ -1226,14 +1226,14 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "FirstNonRepeatingCharacter/1.0.0": {
+      "StringPlay/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
-          "bin/placeholder/FirstNonRepeatingCharacter.dll": {}
+          "bin/placeholder/StringPlay.dll": {}
         },
         "runtime": {
-          "bin/placeholder/FirstNonRepeatingCharacter.dll": {}
+          "bin/placeholder/StringPlay.dll": {}
         }
       }
     }
@@ -4629,15 +4629,15 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "FirstNonRepeatingCharacter/1.0.0": {
+    "StringPlay/1.0.0": {
       "type": "project",
-      "path": "../FirstNonRepeatingCharacter/FirstNonRepeatingCharacter.csproj",
-      "msbuildProject": "../FirstNonRepeatingCharacter/FirstNonRepeatingCharacter.csproj"
+      "path": "../StringPlay/StringPlay.csproj",
+      "msbuildProject": "../StringPlay/StringPlay.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "FirstNonRepeatingCharacter >= 1.0.0",
+      "StringPlay >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.4.0",
       "NUnit3TestAdapter >= 3.15.1",
       "nunit >= 3.12.0"
@@ -4649,11 +4649,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
+      "projectUniqueName": "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
       "projectName": "CharacterFinderTests",
-      "projectPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
+      "projectPath": "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
       "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-      "outputPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\obj\\",
+      "outputPath": "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4669,8 +4669,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj": {
-              "projectPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj"
+            "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\StringPlay.csproj": {
+              "projectPath": "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\StringPlay.csproj"
             }
           }
         }

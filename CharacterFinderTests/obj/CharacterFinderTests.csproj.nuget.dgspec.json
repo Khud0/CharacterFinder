@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\CharacterFinderTests.csproj": {}
+    "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\CharacterFinderTests.csproj": {}
   },
   "projects": {
-    "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\CharacterFinderTests.csproj": {
+    "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\CharacterFinderTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
+        "projectUniqueName": "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
         "projectName": "CharacterFinderTests",
-        "projectPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
+        "projectPath": "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\CharacterFinderTests.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\CharacterFinderTests\\obj\\",
+        "outputPath": "C:\\Files\\C# Projects\\StringPlaySolution\\CharacterFinderTests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj": {
-                "projectPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj"
+              "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\StringPlay.csproj": {
+                "projectPath": "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\StringPlay.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj": {
+    "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\StringPlay.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj",
-        "projectName": "FirstNonRepeatingCharacter",
-        "projectPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\FirstNonRepeatingCharacter.csproj",
+        "projectUniqueName": "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\StringPlay.csproj",
+        "projectName": "StringPlay",
+        "projectPath": "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\StringPlay.csproj",
         "packagesPath": "C:\\Users\\Ivan\\.nuget\\packages\\",
-        "outputPath": "C:\\Files\\C# Projects\\FirstNonRepeatingCharacterSolution\\FirstNonRepeatingCharacter\\obj\\",
+        "outputPath": "C:\\Files\\C# Projects\\StringPlaySolution\\StringPlay\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ivan\\AppData\\Roaming\\NuGet\\NuGet.Config",
