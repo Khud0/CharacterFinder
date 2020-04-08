@@ -1,0 +1,14 @@
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\StringPlay.exe
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\StringPlay.deps.json
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\StringPlay.runtimeconfig.json
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\StringPlay.runtimeconfig.dev.json
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\StringPlay.dll
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\StringPlay.pdb
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\Khud0.dll
+C:\Files\C# Projects\StringPlaySolution\StringPlay\bin\Debug\netcoreapp3.1\Khud0.pdb
+C:\Files\C# Projects\StringPlaySolution\StringPlay\obj\Debug\netcoreapp3.1\StringPlay.csprojAssemblyReference.cache
+C:\Files\C# Projects\StringPlaySolution\StringPlay\obj\Debug\netcoreapp3.1\StringPlay.AssemblyInfoInputs.cache
+C:\Files\C# Projects\StringPlaySolution\StringPlay\obj\Debug\netcoreapp3.1\StringPlay.AssemblyInfo.cs
+C:\Files\C# Projects\StringPlaySolution\StringPlay\obj\Debug\netcoreapp3.1\StringPlay.csproj.CopyComplete
+C:\Files\C# Projects\StringPlaySolution\StringPlay\obj\Debug\netcoreapp3.1\StringPlay.dll
+C:\Files\C# Projects\StringPlaySolution\StringPlay\obj\Debug\netcoreapp3.1\StringPlay.pdb
