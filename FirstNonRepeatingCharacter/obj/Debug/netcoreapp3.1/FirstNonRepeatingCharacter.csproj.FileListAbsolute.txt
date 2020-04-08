@@ -9,3 +9,6 @@ C:\Files\C# Projects\FirstNonRepeatingCharacterSolution\FirstNonRepeatingCharact
 C:\Files\C# Projects\FirstNonRepeatingCharacterSolution\FirstNonRepeatingCharacter\obj\Debug\netcoreapp3.1\FirstNonRepeatingCharacter.AssemblyInfo.cs
 C:\Files\C# Projects\FirstNonRepeatingCharacterSolution\FirstNonRepeatingCharacter\obj\Debug\netcoreapp3.1\FirstNonRepeatingCharacter.dll
 C:\Files\C# Projects\FirstNonRepeatingCharacterSolution\FirstNonRepeatingCharacter\obj\Debug\netcoreapp3.1\FirstNonRepeatingCharacter.pdb
+C:\Files\C# Projects\FirstNonRepeatingCharacterSolution\FirstNonRepeatingCharacter\bin\Debug\netcoreapp3.1\Khud0.dll
+C:\Files\C# Projects\FirstNonRepeatingCharacterSolution\FirstNonRepeatingCharacter\bin\Debug\netcoreapp3.1\Khud0.pdb
+C:\Files\C# Projects\FirstNonRepeatingCharacterSolution\FirstNonRepeatingCharacter\obj\Debug\netcoreapp3.1\FirstNonRepeatingCharacter.csproj.CopyComplete

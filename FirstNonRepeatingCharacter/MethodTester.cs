@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
+using Khud0.Utility;
 
-namespace CharacterSearch
+namespace StringPlay
 {
-    public class CharacterSearcher<TOutput> where TOutput : IComparable
+    public static class MethodTester<TOutput> where TOutput : IComparable
     {
-        public virtual void Test(string stringToSearchIn)
-        {
-            Console.WriteLine("Error: Default TestAllMethods method used!");
-        }
-
+        /// <summary>Displays results according to expected output</summary>
         /// <param name="searchFor">What should the method return? How is it called? Example: "first non repeating character"</param>
-        protected virtual void DisplaySearchResult(string methodName, string searchFor, TOutput searchResult)
+        public static void DisplaySearchResult(string methodName, string searchFor, TOutput searchResult)
         {
             Console.WriteLine(); 
             if (searchResult == null || searchResult.Equals(default(TOutput))) 
@@ -23,12 +19,12 @@ namespace CharacterSearch
         /// Fires all methods (Func delegates) from searchMethhods list and prints out their outputs, if any.
         /// Displays elapsed time for each method it runs.
         /// </summary>
-        /// <typeparam name="T">Return type of methods (Func delegates) in provided List</typeparam>
+        /// <typeparam name="TOutput">Return type of methods (Func delegates) in provided List</typeparam>
         /// <param name="expectedOutput">What should the method return? How is it called? Example: "first non repeating character"</param>
         /// <param name="searchMethods">List of Func delegates with all the methods you want to test</param>
-        protected void TestAllMethods(string stringToSearchIn, string expectedOutput, List<Func<string, TOutput>> searchMethods) 
+        public static void TestAllMethods(string stringToSearchIn, string expectedOutput, params Func<string, TOutput>[] searchMethods) 
         {
-            int methodCount = searchMethods.Count;
+            int methodCount = searchMethods.Length;
             for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
             {
                 Func<string, TOutput> selectedMethod = searchMethods[methodIndex];
@@ -40,11 +36,15 @@ namespace CharacterSearch
         }
 
         /// <summary>
-        /// Tests sort methods which can be ascending and descending
+        /// Fires all methods (Func delegates) from searchMethhods list and prints out their outputs, if any.
+        /// Displays elapsed time for each method it runs.
         /// </summary>
-        protected void TestAllMethods(string stringToSearchIn, string expectedOutput, List<Func<string, bool, TOutput>> searchMethods) 
+        /// <typeparam name="TOutput">Return type of methods (Func delegates) in provided List</typeparam>
+        /// <param name="expectedOutput">What should the method return? How is it called? Example: "first non repeating character"</param>
+        /// <param name="searchMethods">List of Func delegates with all the methods you want to test</param>
+        public static void TestAllMethods(string stringToSearchIn, string expectedOutput, params Func<string, bool, TOutput>[] searchMethods) 
         {
-            int methodCount = searchMethods.Count;
+            int methodCount = searchMethods.Length;
             for (int methodIndex=0; methodIndex<methodCount; methodIndex++)
             {
                 Func<string, bool, TOutput> selectedMethod = searchMethods[methodIndex];

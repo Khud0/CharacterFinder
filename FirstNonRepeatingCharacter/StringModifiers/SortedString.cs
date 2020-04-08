@@ -1,28 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
+using Khud0.Utility;
 
-namespace CharacterSearch
+namespace StringPlay
 {
-    public class SortedString : CharacterSearcher<string>
+    public class SortedString : IStringModifier
     {            
-        List<Func<string, bool, string>> allMethods = new List<Func<string, bool, string>>()
+        public void Test(string stringToSearchIn)
         {
-            new Func<string, bool, string>(BubbleSort),
-            new Func<string, bool, string>(CharArraySort),
-            new Func<string, bool, string>(GnomeSort)
-        };
-
-        public override void Test(string stringToSearchIn)
-        {
-            TestAllMethods(stringToSearchIn, "sorted string", allMethods);
-        }
-
-        public static void SwapCharacters(StringBuilder stringBuilder, int index1, int index2)
-        {
-            char temp = stringBuilder[index2];
-            stringBuilder[index2] = stringBuilder[index1];
-            stringBuilder[index1] = temp;
+            MethodTester<string>.TestAllMethods( stringToSearchIn, "sorted string", 
+                                                 new Func<string, bool, string>(BubbleSort), 
+                                                 new Func<string, bool, string>(CharArraySort),
+                                                 new Func<string, bool, string>(GnomeSort) );
         }
 
         #region Search Methods
@@ -51,7 +40,7 @@ namespace CharacterSearch
 
                     if (shouldSwapCharacters)
                     {
-                        SwapCharacters(stringBuilder, i, i+1);
+                        StringBuilderModifier.SwapCharacters(stringBuilder, i, i+1);
                         changesMade++;
                     }
                 }
@@ -135,7 +124,7 @@ namespace CharacterSearch
                 if (shouldSwap)
                 {
                     // Perform the swap
-                    SwapCharacters(stringBuilder, currentIndex, currentIndex-1);
+                    StringBuilderModifier.SwapCharacters(stringBuilder, currentIndex, currentIndex-1);
 
                     // Don't go to the index of 0, because there's no other index before it
                     // Increment the current index if you're at the first position, because you've already checked it;

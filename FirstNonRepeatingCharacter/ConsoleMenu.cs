@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace CharacterSearch
+namespace StringPlay
 {
     
     class ConsoleMenu
@@ -98,7 +98,7 @@ namespace CharacterSearch
             }
         }
 
-        private static void RunSearcher<TSearcher, TOutput>() where TSearcher : CharacterSearcher<TOutput>, new()
+        private static void RunSearcher<TSearcher, TOutput>() where TSearcher : IStringModifier, new()
                                                               where TOutput : IComparable
         {
             TSearcher searcher = new TSearcher();

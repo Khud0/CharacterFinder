@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
-namespace CharacterSearch
+namespace StringPlay
 {
-    public class FormattedString : CharacterSearcher<string>
+    public class FormattedString : IStringModifier
     {
-        List<Func<string, string>> allMethods = new List<Func<string, string>>()
+        public void Test(string stringToSearchIn)
         {
-            new Func<string, string>(Ladder)
-        };
-
-        public override void Test(string stringToSearchIn)
-        {
-            TestAllMethods(stringToSearchIn, "formatted string", allMethods);
+            MethodTester<string>.TestAllMethods( stringToSearchIn, "formatted string", 
+                                                 new Func<string, string>(Ladder) );
         }
 
         #region Methods

@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Khud0.Utility;
 
-namespace CharacterSearch
+namespace StringPlay
 {
-    public class FirstNonRepeatingCharacter : CharacterSearcher<char>
+    public class FirstNonRepeatingCharacter : IStringModifier
     {
-        List<Func<string, char>> allMethods = new List<Func<string, char>>()
+        public void Test(string stringToSearchIn)
         {
-            new Func<string, char>(TwoPointersSearch),
-            new Func<string, char>(DictionarySearch),
-            new Func<string, char>(CountEachCharacterSearch)
-        };
-
-        public override void Test(string stringToSearchIn)
-        {
-            TestAllMethods(stringToSearchIn, "first non repeating character", allMethods);
+            MethodTester<char>.TestAllMethods( stringToSearchIn, "first non repeating character", 
+                                               new Func<string, char>(TwoPointersSearch),
+                                               new Func<string, char>(DictionarySearch),
+                                               new Func<string, char>(CountEachCharacterSearch) );
         }
-
-
 
         #region Search Methods
 
@@ -128,7 +123,7 @@ namespace CharacterSearch
                 if (checkedCharacters.Contains(currentCharacter)) continue; 
 
                 // If the character count is higher than 1 - add it to "skip list" so that you don't check it again
-                if (StringContainsMoreThanOneCharacter(stringToSearchIn, currentCharacter))
+                if (StringCheck.CharacterRepeats(stringToSearchIn, currentCharacter))
                 {
                     checkedCharacters.Add(currentCharacter);
                     continue;
@@ -142,28 +137,6 @@ namespace CharacterSearch
             }
 
             return foundCharacter;
-        }
-        private static bool StringContainsMoreThanOneCharacter(string stringToSearchIn, char charToCount)
-        {
-            int stringLength = stringToSearchIn.Length;
-            bool moreThanOneCharacter = false;
-            int charCount = 0;
-
-            for (int i=0; i<stringLength; i++)
-            {
-                if (stringToSearchIn[i].Equals(charToCount))
-                {
-                    //charCount++;
-
-                    if (++charCount > 1) 
-                    {
-                        moreThanOneCharacter = true;
-                        break;
-                    }
-                }
-            }
-
-            return moreThanOneCharacter;
         }
 
         #endregion

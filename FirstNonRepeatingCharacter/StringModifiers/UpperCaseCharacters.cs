@@ -2,23 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CharacterSearch
+namespace StringPlay
 {
-    public class UpperCaseCharacters : CharacterSearcher<string>
+    public class UpperCaseCharacters : IStringModifier
     {
-        List<Func<string, string>> allMethods = new List<Func<string, string>>()
+        public void Test(string stringToSearchIn)
         {
-            new Func<string, string>(StringBuilderRemove),
-            new Func<string, string>(StringBuilderAdd),
-            new Func<string, string>(UpperCaseNoDuplicate)
-        };
-
-        public override void Test(string stringToSearchIn)
-        {
-            TestAllMethods(stringToSearchIn, "upper case letters", allMethods);
+            MethodTester<string>.TestAllMethods( stringToSearchIn, "upper case letters", 
+                                                 new Func<string, string>(StringBuilderRemove),
+                                                 new Func<string, string>(StringBuilderAdd),
+                                                 new Func<string, string>(UpperCaseNoDuplicate) );
         }
-
-
 
         #region Search Methods
 
